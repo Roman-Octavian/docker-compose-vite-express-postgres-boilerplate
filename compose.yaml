@@ -1,0 +1,42 @@
+services:
+  vite:
+    container_name: client
+    restart: always
+    build: ./client
+    ports:
+      - "80:80"
+
+  db:
+    container_name: database
+    restart: always
+    image: 'postgres'
+    ports:
+      - "8081:5432"
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DB: yy${POSTGRES_DB}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    # Named network not actually required; may be removed
+    networks:
+      - common-net
+
+  express:
+    container_name: server
+    restart: always
+    build: ./server
+    ports:
+      - "8080:8080"
+    env_file:
+      - "./server/.env.template"
+    # Named network not actually required; may be removed
+    networks:
+      - common-net
+
+volumes:
+  pgdata:
+
+# Named network not actually required; may be removed
+networks: 
+  common-net: {}

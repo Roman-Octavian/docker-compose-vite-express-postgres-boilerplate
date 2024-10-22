@@ -1,0 +1,28 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "app.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/app.js",
+    "drizzle:generate": "npx drizzle-kit generate --config=./db/drizzle.local.config.ts",
+    "drizzle:push": "npx drizzle-kit push --config=./db/drizzle.local.config.ts",
+    "drizzle:studio": "drizzle-kit studio --config ./db/drizzle.local.config.ts"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.7.4",
+    "drizzle-kit": "^0.26.2",
+    "@types/pg": "^8.11.10",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.35.2",
+    "express": "^4.21.0",
+    "pg": "^8.13.0"
+  }
+}

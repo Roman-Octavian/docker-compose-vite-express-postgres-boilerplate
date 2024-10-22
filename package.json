@@ -1,0 +1,21 @@
+{
+  "name": "docker-compose",
+  "version": "0.0.1",
+  "description": "Mandatory docker-compose hand-in",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "compose:up": "docker compose --env-file ./server/.env.template up",
+    "compose:purge": "docker compose down --rmi all --volumes --remove-orphans",
+    "compose:down": "docker compose down",
+    "drizzle:init": "npm run drizzle:push -w server && npm run drizzle:studio -w server"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "concurrently": "^9.0.1",
+    "cross-env": "^7.0.3"
+  }
+}

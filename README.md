@@ -55,7 +55,7 @@ Run `compose.yaml`:
 npm run compose:up
 ```
 
-Wait for Docker compose to finish, and then setup Drizzle:
+Wait for Docker compose to finish, and then setup Drizzle in another terminal instance:
 
 ```bash
 npm run drizzle:init

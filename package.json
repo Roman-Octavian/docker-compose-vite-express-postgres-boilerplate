@@ -12,10 +12,5 @@
     "compose:down": "docker compose down",
     "drizzle:init": "npm run drizzle:push -w server && npm run drizzle:studio -w server"
   },
-  "license": "MIT",
-  "devDependencies": {
-    "dotenv": "^16.4.5",
-    "concurrently": "^9.0.1",
-    "cross-env": "^7.0.3"
-  }
+  "license": "MIT"
 }
